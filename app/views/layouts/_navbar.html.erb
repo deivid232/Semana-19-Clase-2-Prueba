@@ -8,15 +8,29 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="">usuario:<%= current_user.email.capitalize! %></a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "salir", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= orders_path %>">Tareas Realizadas</a>
+          </li>
+        <% else %>
+
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ingresar", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "registrarse", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
     </ul>
   </div>
 </nav>
+<p></p>

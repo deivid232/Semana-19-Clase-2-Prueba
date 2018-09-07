@@ -1,0 +1,12 @@
+<table class="table">
+  <% @orders.each do |order| %>
+    <tr>
+      <td> <%= order.task.name %> </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td> Total: </td>
+    <td> <%= @orders.map{ |order| order.task.contador}.sum %> </td>
+  </tr>
+
+</table>
