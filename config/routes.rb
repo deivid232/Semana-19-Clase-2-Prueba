@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'orders/create'
-  # get 'orders/destroy'
-  # get 'orders/show'
-  resources :tasks, only: :index do
+  resources :tasks, only: [:index, :show] do
+    member do
+      post :cambios
+    end
     resources :orders, only: :create
   end
-
+  get 'orders/create'
   resources :orders, only: :index
   root to: 'tasks#index'
+  post'tasks/show'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
+
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

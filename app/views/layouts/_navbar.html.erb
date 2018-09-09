@@ -1,33 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <%= link_to "Home", tasks_path %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <a class="nav-link" href="">usuario:<%= current_user.email.capitalize! %></a>
+          <li class="nav-item ">
+            <a class="btn btn-link" href="<%= orders_path %>">Mis Tareas:<%= current_user.orders.where(completed: true).count%>/<%=Task.count%></a>
           </li>
-          <li class="nav-item">
-            <%= link_to "salir", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <li class="nav-item ">
+            <a class="nav-link" href="">usuario:<%= current_user.email%></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= orders_path %>">Tareas Realizadas</a>
+          <li class="nav-item active">
+            <%= link_to "salir", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
           </li>
         <% else %>
-
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <%= link_to "Ingresar", new_user_session_path, class: "btn btn-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Ingresar", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "registrarse", new_user_registration_path, class: "nav-link" %>
+            <%= link_to "registrarse", new_user_registration_path, class: "btn btn-link" %>
           </li>
         <% end %>
     </ul>
