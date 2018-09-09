@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'orders/create'
   resources :orders, only: :index
   root to: 'tasks#index'
-  post'tasks/show'
+  get'tasks/show'
   devise_for :users
 
 end

@@ -1,1 +1,48 @@
+<table class="table">
+  <h1>Los 5 mas responables:</h1>
+  <p></p>
 
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Tarea</th>
+    </tr>
+  </thead>
+  <p></p>
+
+  <tbody>
+    <% if %>
+      <% @orders.take(5).each_with_index do |order|  %>
+      <tr>
+        <% if order.completed == true %>
+        <th> <%= order.user.email %> </th>
+        <th> <%= order.task.name %> </th>
+       </tr>
+        <% end  %>
+      <% end %>
+    <% end %>
+    <tbody>
+</table>
+<table class="table">
+  <h1>Todos los que ralizaron la tarea:</h1>
+  <p></p>
+
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Tarea</th>
+    </tr>
+  </thead>
+  <p></p>
+
+  <tbody>
+    <% @order.each_with_index do |order|  %>
+    <tr>
+      <% if order.completed == true and order.task_id == order.task.id%>
+      <th> <%= order.user.email %> </th>
+      <th> <%= order.task.name %> </th>
+     </tr>
+      <% end  %>
+    <% end %>
+    <tbody>
+</table>

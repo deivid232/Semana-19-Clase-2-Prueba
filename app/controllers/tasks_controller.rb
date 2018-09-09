@@ -17,11 +17,15 @@ before_action :authenticate_user!
     end
       redirect_to tasks_path, notice: 'Cambio realizado con exito'
   end
-
   def show
-    @tasks = Task.all
-    @orders = Order.all
-    @order = Order.where(task: @task)
+    @order = Order.all
+    @orders = Order.where(completed: true)
   end
+  # @order = Order.where(completed: true)
+  # def show
+  #   @stasks = Task.all
+  #   @orders = Order.all
+  #   @order = Order.where(task: @task)
+  # end
 
 end
