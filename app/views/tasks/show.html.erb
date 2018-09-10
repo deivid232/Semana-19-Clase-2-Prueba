@@ -1,56 +1,57 @@
-<table class="table">
-  <h1>Los 5 mas responables:</h1>
-  <p></p>
+<div class="container">
+  <table class="table">
+    <h1 class="text-center">Los 5 mas responables</h1>
+    <p></p>
 
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Nombre</th>
-      <th>Photo</th>
-      <th>Tarea</th>
-    </tr>
-  </thead>
-  <p></p>
-
-  <tbody>
-    <% if %>
-      <% @orders.take(5).each_with_index do |order|  %>
+    <thead>
       <tr>
-        <% if order.completed == true  and order.task.id == order.task_id %>
-        <th> <%= order.user.email %> </th>
-        <th> <%= order.user.name %></th>
-        <th> <%= 1 %></th>
-        <th> <%= order.task.name %> </th>
-       </tr>
-        <% end  %>
+        <th>Photo</th>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Tarea</th>
+      </tr>
+    </thead>
+    <p></p>
+
+    <tbody>
+      <% if %>
+        <% @orders.take(5).each_with_index do |order|  %>
+        <tr>
+          <% if order.completed == true  and order.task.id == order.task_id %>
+          <th><%= image_tag order.user.photo, class:'img-thumbnail', style:'max-width:50px'%></th>
+          <th> <%= order.user.email %> </th>
+          <th> <%= order.user.name %></th>
+          <th> <%= order.task.name %> </th>
+         </tr>
+          <% end  %>
+        <% end %>
       <% end %>
-    <% end %>
-    <tbody>
-</table>
-<table class="table">
-  <h1>Todos los que ralizaron la tarea:</h1>
-  <p></p>
+      <tbody>
+  </table>
+  <table class="table">
+    <h1 class="text-center">Todos los que ralizaron Tareas</h1>
+    <p></p>
 
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Nombre</th>
-      <th>Photo</th>
-      <th>Tarea</th>
-    </tr>
-  </thead>
-  <p></p>
-
-  <tbody>
-    <% @order.each_with_index do |order|  %>
-    <tr>
-      <% if order.completed == true and order.task_id == order.task.id%>
-      <th> <%= order.user.email %> </th>
-      <th> <%= order.user.name %> </th>
-      <th><%=image_tag task.photo, class:'rounded-circle', style:'max-width:50px'%></th>
-      <th> <%= order.task.name %> </th>
-     </tr>
-      <% end  %>
-    <% end %>
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Tarea</th>
+      </tr>
+    </thead>
+    <p></p>
     <tbody>
-</table>
+      <% @orders.each_with_index do |order|  %>
+        <tr>
+          <% if order.completed == true %>
+          <th><%= image_tag order.user.photo, class:'img-thumbnail', style:'max-width:50px'%></th>
+          <th> <%= order.user.email %> </th>
+          <th> <%= order.user.name %> </th>
+          <th> <%= order.task.name %> </th>
+         </tr>
+          <% end  %>
+        <% end %>
+      <tbody>
+  </table>
+</div>

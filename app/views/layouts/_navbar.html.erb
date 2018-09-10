@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "Home", tasks_path %>
+  <h3> <%= link_to "Tareas", tasks_path %> </h3>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,10 +7,10 @@
     <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item ">
-            <a class="btn btn-link" href="<%= orders_path %>">Mis Tareas:<%= current_user.orders.where(completed: true).count%>/<%=Task.count%></a>
+            <a class="nav-link" href="">usuario:<%= current_user.email%></a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="">usuario:<%= current_user.email%></a>
+            <a class="btn btn-link" href="<%= orders_path %>">Mis Tareas:<%= current_user.orders.where(completed: true).count%>/<%=Task.count%></a>
           </li>
           <li class="nav-item ">
           <%= link_to 'Editar perfil', edit_user_registration_path, class: "btn btn-link" %>

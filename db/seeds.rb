@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#Task.destroy_all
-
 tasks = Task.create([
   {name: 'Elevar un Volantin', photo:'http://oasisfm.cl/oasisfm/site/artic/20150925/imag/foto_0000001320150925143459.jpg', contador: 1 },
   {name: 'Tirar la Cuerda', photo: 'http://valledelaconcagua.cl/wp-content/uploads/2014/09/057-400x400.jpg', contador: 1  },

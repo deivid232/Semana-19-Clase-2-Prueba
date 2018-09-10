@@ -1,21 +1,22 @@
-  <div class="row">
-    <div class="col-md-12">
-
+  <div class="container">
       <table class="table">
-        <tr>Tasks realizadas</tr>
-        <% @orders.each do |order| %>
+        <thead>
+          <tr>
+            <th> <h3>Mis Tareas</h3></th>
+          </tr>
+        </thead>
+        <p></p>
         <tbody>
-          <tr>
-            <% if order.completed == true %>
-              <td> <%= order.task.name %> </td>
-            <% end %>
-          </tr>
-        <% end %>
-          <tr>
-            <td> Total Tareas: <%= current_user.orders.where(completed: true).count %></td>
-          </tr>
-          </tbody>
-
+          <% @orders.each do |order| %>
+            <tr>
+              <% if order.completed == true %>
+                <th> <%= order.task.name %> </th>
+              <% end %>
+            </tr>
+          <% end %>
+            <tr>
+              <th> Total Tareas: <%= current_user.orders.where(completed: true).count %></th>
+            </tr>
+        </tbody>
       </table>
-    </div>
   </div>
