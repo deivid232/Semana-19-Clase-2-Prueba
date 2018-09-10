@@ -12,6 +12,9 @@
           <li class="nav-item ">
             <a class="nav-link" href="">usuario:<%= current_user.email%></a>
           </li>
+          <li class="nav-item ">
+          <%= link_to 'Editar perfil', edit_user_registration_path, class: "btn btn-link" %>
+          </li>
           <li class="nav-item active">
             <%= link_to "salir", destroy_user_session_path, method: :delete, class: "btn btn-link" %>
           </li>

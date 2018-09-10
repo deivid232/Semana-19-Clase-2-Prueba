@@ -5,6 +5,8 @@
   <thead>
     <tr>
       <th>Email</th>
+      <th>Nombre</th>
+      <th>Photo</th>
       <th>Tarea</th>
     </tr>
   </thead>
@@ -14,8 +16,10 @@
     <% if %>
       <% @orders.take(5).each_with_index do |order|  %>
       <tr>
-        <% if order.completed == true %>
+        <% if order.completed == true  and order.task.id == order.task_id %>
         <th> <%= order.user.email %> </th>
+        <th> <%= order.user.name %></th>
+        <th> <%= 1 %></th>
         <th> <%= order.task.name %> </th>
        </tr>
         <% end  %>
@@ -30,6 +34,8 @@
   <thead>
     <tr>
       <th>Email</th>
+      <th>Nombre</th>
+      <th>Photo</th>
       <th>Tarea</th>
     </tr>
   </thead>
@@ -40,6 +46,8 @@
     <tr>
       <% if order.completed == true and order.task_id == order.task.id%>
       <th> <%= order.user.email %> </th>
+      <th> <%= order.user.name %> </th>
+      <th><%=image_tag task.photo, class:'rounded-circle', style:'max-width:50px'%></th>
       <th> <%= order.task.name %> </th>
      </tr>
       <% end  %>

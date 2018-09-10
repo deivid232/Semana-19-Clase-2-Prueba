@@ -21,6 +21,7 @@ before_action :authenticate_user!
     @order = Order.all
     @orders = Order.where(completed: true)
   end
+    # @orders = Order.where(task_id: params[:id])
   # @order = Order.where(completed: true)
   # def show
   #   @stasks = Task.all
